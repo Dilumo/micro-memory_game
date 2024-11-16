@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://dygv8r1kytssh"]
+
+[ext_resource type="Script" path="res://scripts/memory_game.gd" id="1_7vox5"]
+[ext_resource type="Texture2D" uid="uid://djqntm1si4gjp" path="res://resources/bg_gameplay.jpg" id="2_3ecp1"]
+[ext_resource type="FontFile" uid="uid://bi7agdkxgtut0" path="res://resources/fonts/Halo Dek.ttf" id="3_g1lm7"]
+[ext_resource type="AudioStream" uid="uid://t8hxwey0l3nr" path="res://resources/sounds/Gameplay.ogg" id="4_th1vn"]
+[ext_resource type="AudioStream" uid="uid://iofefmx7i3vl" path="res://resources/sfx/click_card.wav" id="5_yjsq6"]
+[ext_resource type="AudioStream" uid="uid://ctf4afqnkmohn" path="res://resources/sfx/match.wav" id="7_0674c"]
+
+[sub_resource type="Theme" id="Theme_2c1r2"]
+default_font = ExtResource("3_g1lm7")
+default_font_size = 25
+
+[node name="MemoryGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vox5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3ecp1")
+expand_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 44.0
+offset_right = -31.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+
+[node name="lblLevel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 25.0
+offset_right = 85.0
+offset_bottom = 59.0
+theme = SubResource("Theme_2c1r2")
+theme_override_colors/font_color = Color(0.12508, 0.0800661, 1.20327e-08, 1)
+text = "Level"
+
+[node name="lblScore" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 448.0
+offset_top = 26.0
+offset_right = 537.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme = SubResource("Theme_2c1r2")
+theme_override_colors/font_color = Color(0.12549, 0.0784314, 0, 1)
+text = "Score: 0"
+
+[node name="rcBannerStartGame" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 595.0
+offset_top = -34.0
+offset_right = 1807.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08184, 0.0756, 0.09, 1)
+
+[node name="lblStartLevel" type="Label" parent="rcBannerStartGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.707275, 0.2565, 1)
+theme_override_fonts/font = ExtResource("3_g1lm7")
+theme_override_font_sizes/font_size = 42
+text = "LEVEL: 01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="progress_timer" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = 34.0
+offset_right = 250.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_g1lm7")
+min_value = 1.0
+value = 100.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStream_BG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_th1vn")
+autoplay = true
+
+[node name="AudioPlayer_Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yjsq6")
+
+[node name="AudioPlayer_NoMatch" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioPlayer_Match" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0674c")

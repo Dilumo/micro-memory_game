@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://di3s6b0odirdu"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_h6j2j"]
+[ext_resource type="Texture2D" uid="uid://djqntm1si4gjp" path="res://resources/bg_gameplay.jpg" id="2_q8ep0"]
+[ext_resource type="Texture2D" uid="uid://b3wnpe4o10jsr" path="res://resources/Logo.png" id="3_2brif"]
+[ext_resource type="Texture2D" uid="uid://4vmp1sg1t0ri" path="res://resources/start-button.png" id="4_o1ciy"]
+[ext_resource type="Texture2D" uid="uid://bw02ewh4y1skp" path="res://resources/find_image.png" id="5_a0m6s"]
+[ext_resource type="AudioStream" uid="uid://20xgxyryectf" path="res://resources/sounds/MainMenu.ogg" id="6_thaks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdvhm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqnog"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h6j2j")
+
+[node name="backgrtound" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q8ep0")
+expand_mode = 1
+
+[node name="game_logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -196.0
+offset_right = 472.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2brif")
+expand_mode = 1
+
+[node name="btnStart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = 140.0
+offset_right = 92.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.882353, 0.705882, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jdvhm")
+icon = ExtResource("4_o1ciy")
+flat = true
+expand_icon = true
+
+[node name="btnFindImages" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 82.0
+offset_top = 139.0
+offset_right = 166.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.882353, 0.705882, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kqnog")
+icon = ExtResource("5_a0m6s")
+flat = true
+expand_icon = true
+
+[node name="fileDialog" type="FileDialog" parent="."]
+title = "Open File(s)"
+initial_position = 3
+size = Vector2i(515, 325)
+current_screen = 0
+ok_button_text = "Open"
+file_mode = 1
+access = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_thaks")
+autoplay = true
