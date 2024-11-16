@@ -47,7 +47,7 @@ user/
 
 1. Clone o repositório:
    ```sh
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/Dilumo/micro-memory_game.git
    ```
 2. Abra o projeto no **Godot Engine**.
 3. Execute a cena principal:
