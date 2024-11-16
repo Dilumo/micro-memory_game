@@ -42,8 +42,11 @@ func start_level(current_level):
 	interaction_locked = true
 	for card in grid_container.get_children():
 		card.queue_free()
+
 	grid_container.columns = calculate_columns(current_level)
-	var images = load_images()
+
+	# Usando as imagens carregadas de GameManagement
+	var images = GameManagement.images
 	var num_pairs = current_level + 1
 	var cards = generate_card_pairs(images, num_pairs)
 	cards.shuffle()
@@ -51,8 +54,10 @@ func start_level(current_level):
 	spawn_cards(cards)
 	update_level_display()
 	show_level_banner(current_level)
+
 	var level_time = int(base_time * pow(time_decay, current_level - 1))
 	start_timer(level_time)
+
 
 func start_timer(level_time : int):
 	time_left = level_time
@@ -122,12 +127,37 @@ func disable_cards():
 
 
 func spawn_cards(cards):
+	# Calcula o tamanho dinâmico das cartas com base no espaço disponível
+	var container_size = grid_container.size
+	var total_cards = cards.size()
+	var columns = calculate_columns(level)
+	var rows = ceil(float(total_cards) / columns)
+
+	# Calcula o tamanho da célula do GridContainer
+	var cell_width = container_size.x / columns
+	var cell_height = container_size.y / rows
+	var card_size = min(cell_width, cell_height) * 0.9  # Mantém margens
+
+	# Define o número de colunas do GridContainer
+	grid_container.columns = columns
+
 	for card_data in cards:
 		var card = preload("res://scenes/card.tscn").instantiate()
 		card.card_image = card_data["image"]
+		card.custom_minimum_size = Vector2(card_size, card_size)
+		
+		# Ajusta o ponto de rotação da carta
+		card.pivot_offset = Vector2(card_size / 2, card_size / 2)  # Ajusta para o centro da carta
+		
+		# Define a rotação (se necessário)
+		card.rotation = deg_to_rad(90)  # Ou qualquer outra rotação que você queira
+
 		card.finish_interactio.connect(_on_card_finish_interaction)
 		card.card_start_flipped.connect(_on_card_start_flipped)
+
 		grid_container.add_child(card)
+
+
 
 func check_for_level_completion():
 	if all_cards_matched():

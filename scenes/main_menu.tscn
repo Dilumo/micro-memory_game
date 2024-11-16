@@ -98,3 +98,4 @@ access = 2
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_thaks")
 autoplay = true
+parameters/looping = false

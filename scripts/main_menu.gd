@@ -30,7 +30,8 @@ func _on_select_images_pressed():
 	file_dialog.popup_centered()  # Abre o diálogo de seleção de arquivos
 
 func _on_start_pressed():
-	GameManagement.go_to_gameplay("res://scenes/memory_game.tscn", {"images": selected_images})  # Passa as imagens para o jogo
+	selected_images = load_images()
+	GameManagement.go_to_gameplay("res://scenes/memory_game.tscn", selected_images)  # Passa as imagens para o jogo
 
 func _on_files_selected(files):
 	var dir = DirAccess.open("user://images")
@@ -55,4 +56,34 @@ func _on_files_selected(files):
 				selected_images.append(target_path)
 				
 			source_file.close()
+			
+func load_images():
+	var dir = DirAccess.open("user://images")
+	var images = []
+	if dir:
+		dir.list_dir_begin()
+		var file = dir.get_next()
+		while file != "":
+			if file.get_extension() in ["png", "jpg"]:
+				var file_path = "user://images/" + file
+				if FileAccess.file_exists(file_path):
+					# Carrega a imagem como recurso e converte em textura
+					var image = Image.create(256,256, false,Image.FORMAT_ETC2_RGB8)
+					var error = image.load(file_path)  # Carrega a imagem no objeto Image
+					if error == OK:
+						var texture = ImageTexture.create_from_image(image)  # Converte para textura
+						images.append(texture)
+			file = dir.get_next()
+		dir.list_dir_end()
+
+	if images.is_empty():
+		images = preload_default_images()  # Carrega texturas padrão caso o diretório esteja vazio
+	images.shuffle()
+	return images
 	
+func preload_default_images():
+	return [
+		preload("res://resources/default_images/rato.jpg"),
+		preload("res://resources/default_images/macaco.jpg"),
+		preload("res://resources/default_images/pokemon.jpg")
+	]
