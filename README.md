@@ -1,7 +1,3 @@
-Segue uma versão revisada e formatada do README para o **Micro Memory Game**. Fiz ajustes de formatação e conteúdo para melhorar a clareza e organização.
-
----
-
 # Micro Memory Game
 
 **Micro Memory Game** é um jogo de memória desenvolvido com o **Godot Engine**. O objetivo do jogo é encontrar todos os pares de cartas correspondentes no menor tempo possível.
@@ -83,7 +79,3 @@ Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](L
 ## 📬 Contato
 
 Para mais informações, entre em contato com **Dilumos Games**. 
-
----
-
-Se precisar de mais ajustes ou detalhes, é só avisar! 😊
