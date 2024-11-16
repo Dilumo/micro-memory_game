@@ -1,8 +1,8 @@
 # Micro Memory Game
 
-**Micro Memory Game** é um jogo de memória desenvolvido com o **Godot Engine**. O objetivo do jogo é encontrar todos os pares de cartas correspondentes no menor tempo possível.
+**Micro Memory Game** is a memory game developed using the **Godot Engine**. The goal of the game is to find all matching card pairs in the shortest time possible.
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 .gitattributes
@@ -14,68 +14,68 @@ scripts/
 user/
 ```
 
-## 🎮 Como Jogar
+## 🎮 How to Play
 
-1. Inicie o jogo a partir do menu principal.
-2. Clique nas cartas para virá-las.
-3. Encontre os pares de cartas correspondentes.
-4. Complete todos os níveis para vencer o jogo.
+1. Start the game from the main menu.
+2. Click on the cards to flip them.
+3. Find all matching card pairs.
+4. Complete all levels to win the game.
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- **Níveis Progressivos**: A dificuldade aumenta a cada nível.
-- **Sistema de Pontuação**: Pontos são atribuídos para cada par encontrado.
-- **Temporizador**: O tempo é limitado para completar cada nível.
-- **Animações e Sons**: Feedback visual e auditivo para interações do jogador.
-- **Seleção de Imagens Personalizadas**: No menu principal, você pode selecionar imagens do seu computador para usar no jogo de memória.
+- **Progressive Levels**: Difficulty increases with each level.
+- **Scoring System**: Points are awarded for each matching pair.
+- **Timer**: Complete each level within the time limit.
+- **Animations and Sounds**: Visual and auditory feedback for player interactions.
+- **Custom Image Selection**: Use your own images for the memory game by uploading them from the main menu.
 
-## 🖥️ Scripts Principais
+## 🖥️ Main Scripts
 
-- [`memory_game.gd`](scripts/memory_game.gd): Controla a lógica principal do jogo.
-- [`card.gd`](scripts/card.gd): Controla o comportamento das cartas.
-- [`main_menu.gd`](scripts/main_menu.gd): Controla o menu principal.
-- [`game_over.gd`](scripts/game_over.gd): Controla a tela de *game over*.
-- [`game_management.gd`](scripts/game_management.gd): Gerencia o estado do jogo e as transições entre cenas.
+- [`memory_game.gd`](scripts/memory_game.gd): Controls the main game logic.
+- [`card.gd`](scripts/card.gd): Manages card behavior.
+- [`main_menu.gd`](scripts/main_menu.gd): Handles the main menu.
+- [`game_over.gd`](scripts/game_over.gd): Manages the game-over screen.
+- [`game_management.gd`](scripts/game_management.gd): Manages game state and scene transitions.
 
-## 🎨 Recursos
+## 🎨 Resources
 
-- **Imagens**: Localizadas na pasta `resources/images/`.
-- **Sons**: Localizados na pasta `resources/sfx/`.
-- **Fontes**: Localizadas na pasta `resources/fonts/`.
+- **Images**: Located in the `resources/images/` folder.
+- **Sounds**: Located in the `resources/sfx/` folder.
+- **Fonts**: Located in the `resources/fonts/` folder.
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-1. Clone o repositório:
+1. Clone the repository:
    ```sh
    git clone https://github.com/Dilumo/micro-memory_game.git
    ```
-2. Abra o projeto no **Godot Engine**.
-3. Execute a cena principal:
+2. Open the project in **Godot Engine**.
+3. Run the main scene:
    ```
    res://scenes/main_menu.tscn
    ```
 
-## 🤝 Contribuição
+## 🤝 Contribution
 
-1. Faça um fork do projeto.
-2. Crie uma branch para sua feature:
+1. Fork the project.
+2. Create a new branch for your feature:
    ```sh
-   git checkout -b feature/nova-feature
+   git checkout -b feature/new-feature
    ```
-3. Commit suas mudanças:
+3. Commit your changes:
    ```sh
-   git commit -am "Adiciona nova feature"
+   git commit -am "Add new feature"
    ```
-4. Faça um push para a branch:
+4. Push the branch:
    ```sh
-   git push origin feature/nova-feature
+   git push origin feature/new-feature
    ```
-5. Abra um **Pull Request**.
+5. Open a **Pull Request**.
 
-## 📜 Licença
+## 📜 License
 
-Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-## 📬 Contato
+## 📬 Contact
 
-Para mais informações, entre em contato com **Dilumos Games**. 
+For more information, get in touch by [LinkedIn](https://www.linkedin.com/in/diego-manarim-465414294/).
